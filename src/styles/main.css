@@ -19,5 +19,5 @@ body {
 
 @font-face {
   font-family: Kalico;
-  src: url(KalicoPolygon.otf);
+  src: url("/KalicoPolygon.otf");
 }
