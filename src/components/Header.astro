@@ -1,0 +1,35 @@
+---
+
+---
+
+<header id="headermod">
+    <nav class="flexme">
+        <ul><li><a href="/" id="headerlabel">PickKali!</a></li></ul>
+        <ul class="flexme">
+            <li><a href="/" class="secondary">Home</a></li>
+            <li hidden><a href="/projects" class="secondary">Projects</a></li>
+            <li hidden><a href="/glossary" class="secondary">Glossary</a></li>
+            <li hidden><a href="/about" class="secondary">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+#headermod  {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 0em 1em;
+    background-color: var(--pico-background-color);
+    box-shadow: 0px -4px 80px var(--pico-background-color) !important;
+}
+.flexme {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#headerlabel {
+  font-family: "Kalico" !important;
+  font-size: xx-large !important;
+  color: var(--KL) !important;
+}
+</style>

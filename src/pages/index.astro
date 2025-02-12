@@ -1,11 +1,145 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Quotes } from "../scripts/quotes.ts";
+const selectedquote = Quotes[Math.floor(Math.random() * Quotes.length)];
+
+import { Image } from "astro:assets";
+import fumo from "../assets/index/fumo.png";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="PickKali's silly corner">
+	<section id="sillysection">
+		<div id="rotateddiv">
+			<Image src={fumo} alt="Kali, in fumo plushie form." height={400} width={400} id="rotateddiv" />
+		</div>
+		<article id="innerarticle">
+			<h1>Hi! I'm Kali! And I'm silly!</h1>
+			<blockquote>"{selectedquote.quote}"<br><br>Kali on {selectedquote.date}</blockquote>
+			<i>This is actually a quote that I have said.</i> <br><br>
+			<a role="button" class="lesspadding" href="#links">Links▼</a>
+			<a role="button" class="lesspadding secondary" href="#resources" hidden>Resources▼</a>
+		</article>
+	</section>
+	<section id="serioussection" class="container-float">
+		<article>
+			<h2 id="links">Links</h2>
+			<table id="linktable" class="striped">
+				<thead>
+					<tr>
+						<th>What</th>
+						<th>Where</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Youtube</th>
+						<td>
+							<a href="https://www.youtube.com/@pickkali" target="_blank" data-tooltip="Your irregularly unscheduled content.">PickKali</a><br>
+							<a href="https://www.youtube.com/@KaliIsTrying" target="_blank" data-tooltip="For whenever I feel musical.">KaliIsTrying</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Wafrn</th>
+						<td>
+							<a href="https://app.wafrn.net/blog/PickKali" target="_blank" data-tooltip="Where the wild thoughts roam free.">PickKali</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Roblox</th>
+						<td>
+							<a href="https://www.roblox.com/users/425402714/profile" target="_blank" data-tooltip="Yeah, I'm linking Roblox, so what?">Unpickled</a><br>
+							<a href="https://www.roblox.com/communities/6245537/Ancient-Arch-Studios#!/about" target="_blank" data-tooltip="Primary group (Obby Squads)">Ancient Arch Studios</a><br>
+							<a href="https://www.roblox.com/communities/12639976/ProtoFox#!/about" target="_blank" data-tooltip="Primary group (Main projects)">Protofox</a><br>
+							<a href="https://www.roblox.com/communities/33196811/Doodle-Fennec#!/about" target="_blank" data-tooltip="Secondary group (Secondary projects)">Doodle Fennec</a><br>
+						</td>
+					</tr>
+					<tr>
+						<th>Github</th>
+						<td>
+							<a href="https://github.com/PickKali" target="_blank" data-tooltip="If you REALLY wanted to look at source code.">PickKali</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Itch.io</th>
+						<td>
+							<a href="https://pickkali.itch.io/" target="_blank" data-tooltip="I still have a lot to do before I get around to using Godot.">PickKali</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Twitch</th>
+						<td>
+							<a href="https://www.twitch.tv/pickkali" target="_blank" data-tooltip="I don't even stream.">PickKali</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</article>
+		<article hidden>
+			<h2 id="resources">Resources</h2>
+		</article>
+	</section>
 </Layout>
+
+<style>
+	html {
+	background-image: linear-gradient(to right, var(--K), #00000000 20%, #00000000 80%, var(--L)), url("k&.png"),
+		linear-gradient(to right, var(--K), var(--L));
+	background-size: auto, 80px, auto;
+	background-repeat: repeat, repeat, repeat;
+	animation: panning 10s ease-in-out infinite;
+	animation-direction: alternate;
+	}
+
+	@keyframes panning {
+	0% {
+		background-position:
+		0% 0%,
+		0% 0%,
+		0% 0%;
+	}
+	100% {
+		background-position:
+		0% 0%,
+		5% 5%,
+		0% 0%;
+	}
+	}
+
+	#innerarticle{
+		height: min-content;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	#sillysection{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		min-height: calc(100vh - 4.5rem);
+	}
+	#rotateddiv {
+		height: min-content;
+		width: fit-content;
+  		margin-top: auto;
+		margin-bottom: auto;
+  		animation: rotateYZ 15s infinite linear;
+	}
+	#serioussection{
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1080px;
+	}
+	.lesspadding{
+		padding: 0.5em 1em;
+	}
+	td{
+		line-height: 2em;
+	}
+	#linktable{
+		table-layout: fixed;
+	}
+@keyframes rotateYZ {
+  to { transform: rotateY(360deg) rotateZ(720deg); }
+}
+</style>

@@ -1,0 +1,23 @@
+:root {
+  --K: #f5a9b8;
+  --L: #e7c386;
+  --KL: #fa8072;
+  --KBlack: #171717;
+  --KGray: #505050;
+  --KLGray: #adadad;
+  --KWhite: #fdfdfd;
+}
+
+html,
+body {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+}
+
+@font-face {
+  font-family: Kalico;
+  src: url(KalicoPolygon.otf);
+}
