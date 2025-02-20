@@ -11,13 +11,13 @@ const { title, description } = Astro.props;
 function slug(text: string): string {
   return text
     .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]+/g, '')
-    .replace(/--+/g, '-')
-    .replace(/^-+/, '')
-    .replace(/-+$/, '');
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
 }
-const imgLink = `https://github.com/PickKali/the-site/blob/master/og/${slug(title)}.png`;
+const imgLink = `https://github.com/PickKali/the-site/blob/master/og/${slug(title)}.png?raw=true`;
 ---
 
 <!doctype html>
@@ -39,7 +39,7 @@ const imgLink = `https://github.com/PickKali/the-site/blob/master/og/${slug(titl
     <meta property="og:type" content="website" />
     <meta property="og:image" content={imgLink} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content="#fa8072">
+    <meta name="theme-color" content="#fa8072" />
   </head>
   <body>
     <Header />
