@@ -3,36 +3,130 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Very Silly Ciphers" description="I'd be surprised if a puzzle designer uses any of these.">
-    <main class="container">
+    <main class="container" id="background">
         <article>
-          <textarea rows="3" id="input"> Yes, this is a default text box. </textarea>
-          <article class="dropdown">
+          <div role="group">
             <select id="dropcontent">
               <option selected disabled value="">Select Cipher</option>
-              <option id="K" style="background-color: #f5a9b8; color: #000">
-                K
+              <option id="Caesar" value="Caesar" style="background-color: #efefef;">
+                Keyboard Caesar
               </option>
-              <option id="L" style="background-color: #ffaa90; color: #000">
-                L
+              <option id="Hex" value="Hex">
+                Hex and Hex
               </option>
-              <option id="M" style="background-color: #aeffae; color: #000">
-                M
+              <option id="Kijetesantakalu" value="Kijetesantakalu" style="background-color: #efefef;">
+                Kijetesantakalu Ike
               </option>
-              <option id="A" style="background-color: #fff899; color: #000">
-                A
+              <option id="Gradient" value="Gradient">
+                Gradients
               </option>
-              <option id="Z" style="background-color: #9988dd; color: #000">
-                Z
+              <option id="GradientA" value="GradientA" style="background-color: #efefef;">
+                Gradients (With Alpha)
               </option>
-              <option id="O" style="background-color: #493457; color: #fff">
-                O
+              <option id="ATS" value="ATS">
+                ALICE THREE (Short)
+              </option>
+              <option id="ATL" value="ATL" style="background-color: #efefef;">
+                ALICE THREE (Long)
+              </option>
+              <option id="Bread" value="Bread">
+                Monkey Bread
               </option>
             </select>
-            <button id="encodetoggle"><b>Encoding</b></button>
-          </article>
-          <textarea id="output" readonly></textarea>
-          <article id="gradient"></article>
-          <button id="copy"><b>Copy Output</b></button>
+            <button id="encodetoggle"><b>Encoding</b></button>            
+          </div>
+          <div id="divider">
+            <div class="column">
+              <div class="columnwrap">
+                <textarea id="input" placeholder="Input"> Yes, this is a default text box. </textarea>
+              </div>
+              <div>
+                <input type="number" name="number" placeholder="Shift" aria-label="Number" id="shift">
+              </div>
+            </div>
+            <div class="column">
+              <div class="columnwrap">
+                <textarea id="output" placeholder="Output" readonly></textarea>
+              </div>
+              <div>
+                <article id="gradient" data-tooltip="You can't even decode the image."></article>
+                <div role="group" id="buttons">
+                  <button id="copy"><b>Copy Output</b></button>
+                  <button id="copyg" class="secondary"><b>Copy Gradient</b></button>
+                </div>
+              </div>
+            </div>
+          </div>
         </article>
       </main>
+      <article id="explanation" hidden> 
+        <header id="ex_header">Keyboard Cipher</header>
+        You know the classic Caesar cipher! The normal Caesar cipher shifts everything alphabetically.<br>
+        This Caesar cipher shifts everything according to your keyboard!<br><br>
+        This also includes special characters and capital letters. So M with a shift of +1 becomes &gt;.<br>
+        Unforunately, this is the "British-American Keyboard", sorry QUERTZ users.
+      </article>
 </Layout>
+
+<script src="../scripts/ciphers.js"></script>
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(-15deg, var(--K), var(--L)40%, var(--K));
+    background-attachment: fixed;
+  }
+  #background {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 4rem);
+    flex-wrap: wrap;
+  }
+  #divider {
+    display: flex;
+    height: 87%;
+  }
+  .column {
+    flex: 1;
+    margin: 0px 5px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 350px;
+  }
+  @media (max-width: 775px){
+    #divider {
+      display: inline;
+    }
+    .column{
+      min-height: 45%;
+    }
+  }
+  .columnwrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .column textarea {
+    flex: 10;
+    width: 100%;
+    resize: none;
+    margin: 5px;
+  }
+  #gradient {
+    width: 100%;
+    height: min-content;
+    margin: 5px;
+  }
+  #buttons {
+    margin: 5px;
+    height: min-content;
+  }
+  #shift {
+    width: 100%;
+    margin: 5px !important;
+  }
+</style>

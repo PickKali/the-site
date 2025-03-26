@@ -3,9 +3,13 @@ import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
 import fumo from "../assets/index/fumo.png";
+import cipher from "../assets/index/cipher.png";
+import conditional from "../assets/index/conditional.png";
+import petprice from "../assets/index/petprice.png";
+import fishcalc from "../assets/index/fishcalc.png";
 ---
 
-<Layout title="PickKali's silly corner" description="something silly lurks...">
+<Layout title="PickKali's silly corner" description="Tap here for +1 Silly">
   <section id="sillysection">
     <div id="rotateddiv">
       <Image
@@ -21,7 +25,7 @@ import fumo from "../assets/index/fumo.png";
       <i>This is actually a quote that I have said.</i>
       <br /><br />
       <a role="button" class="lesspadding" href="#links">Links▼</a>
-      <a role="button" class="lesspadding secondary" href="#resources" hidden
+      <a role="button" class="lesspadding secondary" href="#resources"
         >Resources▼</a
       >
     </article>
@@ -126,20 +130,56 @@ import fumo from "../assets/index/fumo.png";
     </article>
     <article>
       <h2 id="resources">Resources</h2>
-      <ul>
-        <a class="thumbnail" href="/the-site/ciphers">
-            <li>
-              <Image
-                src={fumo}
-                alt="Text: Very Silly Ciphers, Background: Toki Pona Kijetesantakalu symbol, line colors replaced with a green, pink, and brown gradient."
-                height={307}
-                width={200}
-              />
+      <div role="group" class="toolbox">
+        <a class="thumbnail" href="/the-site/ciphers" hidden>
+          <Image
+        src={cipher}
+        alt="Open lock with silly face"
+        height={100}
+        width={100}
+      />
+            <div class="content">
               <h6>Very Silly Ciphers</h6>
               <p>A lot of various ciphers. Usefulness varies.</p>
-            </li>
+            </div>
         </a>
-      </ul>
+        <a class="thumbnail" href="/the-site/selector" hidden>
+          <Image
+        src={conditional}
+        alt="Folder directory with checkmarks and x symbols"
+        height={100}
+        width={100}
+      />
+            <div class="content">
+              <h6>Conditional Selector</h6>
+              <p>A roblox tool for the devs that both build and code.</p>
+            </div>
+        </a>
+        <a class="thumbnail" href="/the-site/pet-pricer" hidden>
+          <Image
+        src={petprice}
+        alt="Outline of a cubic bear with a dollar symbol"
+        height={100}
+        width={100}
+      />
+            <div class="content">
+              <h6>FishOnMC Pet Pricing</h6>
+              <p>Pets are difficult to value, maybe this can help.</p>
+            </div>
+        </a>
+        <a class="thumbnail" href="/the-site/fish-calculator">
+          <Image
+        src={fishcalc}
+        alt="square root of a fish"
+        height={100}
+        width={100}
+      />
+            <div class="content">
+              <h6>FishOnMC Calculator</h6>
+              <p>It shouldn't take me this long to do Murray giga completion!</p>
+            </div>
+        </a>
+      </div>
     </article>
   </section>
 </Layout>
@@ -217,11 +257,33 @@ import fumo from "../assets/index/fumo.png";
     display: list-item;
     text-align: center;
   }
+  .toolbox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  }
   .thumbnail{
     text-decoration: none;
-    display: block;
-    max-width: 400px;
-    border: solid 4px;
+    border: solid 1px;
+    margin: 1px;
     border-image: linear-gradient(to right, var(--K), var(--L)) 27;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    transition: transform 0.3s;
+  }
+  .thumbnail:hover {
+        transform: translateY(-2px);
+  }
+  .content{
+    width: 300px;
+  }
+  @media (max-width: 650px){
+    .thumbnail{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 </style>
