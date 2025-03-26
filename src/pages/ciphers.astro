@@ -2,80 +2,98 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Very Silly Ciphers" description="I'd be surprised if a puzzle designer uses any of these.">
-    <main class="container" id="background">
-        <article>
-          <div role="group">
-            <select id="dropcontent">
-              <option selected disabled value="">Select Cipher</option>
-              <option id="Caesar" value="Caesar" style="background-color: #efefef;">
-                Keyboard Caesar
-              </option>
-              <option id="Hex" value="Hex">
-                Hex and Hex
-              </option>
-              <option id="Kijetesantakalu" value="Kijetesantakalu" style="background-color: #efefef;">
-                Kijetesantakalu Ike
-              </option>
-              <option id="Gradient" value="Gradient">
-                Gradients
-              </option>
-              <option id="GradientA" value="GradientA" style="background-color: #efefef;">
-                Gradients (With Alpha)
-              </option>
-              <option id="ATS" value="ATS">
-                ALICE THREE (Short)
-              </option>
-              <option id="ATL" value="ATL" style="background-color: #efefef;">
-                ALICE THREE (Long)
-              </option>
-              <option id="Bread" value="Bread">
-                Monkey Bread
-              </option>
-            </select>
-            <button id="encodetoggle"><b>Encoding</b></button>            
+<Layout
+  title="Very Silly Ciphers"
+  description="I'd be surprised if a puzzle designer uses any of these."
+>
+  <main class="container" id="background">
+    <article>
+      <div role="group">
+        <select id="dropcontent">
+          <option selected disabled value="">Select Cipher</option>
+          <option id="Caesar" value="Caesar" style="background-color: #efefef;">
+            Keyboard Caesar
+          </option>
+          <option id="Hex" value="Hex"> Hex and Hex </option>
+          <option
+            id="Kijetesantakalu"
+            value="Kijetesantakalu"
+            style="background-color: #efefef;"
+          >
+            Kijetesantakalu Ike
+          </option>
+          <option id="Gradient" value="Gradient"> Gradients </option>
+          <option
+            id="GradientA"
+            value="GradientA"
+            style="background-color: #efefef;"
+          >
+            Gradients (With Alpha)
+          </option>
+          <option id="ATS" value="ATS"> ALICE THREE (Short) </option>
+          <option id="ATL" value="ATL" style="background-color: #efefef;">
+            ALICE THREE (Long)
+          </option>
+          <option id="Bread" value="Bread"> Monkey Bread </option>
+        </select>
+        <button id="encodetoggle"><b>Encoding</b></button>
+      </div>
+      <div id="divider">
+        <div class="column">
+          <div class="columnwrap">
+            <textarea id="input" placeholder="Input">
+              Yes, this is a default text box.
+            </textarea>
           </div>
-          <div id="divider">
-            <div class="column">
-              <div class="columnwrap">
-                <textarea id="input" placeholder="Input"> Yes, this is a default text box. </textarea>
-              </div>
-              <div>
-                <input type="number" name="number" placeholder="Shift" aria-label="Number" id="shift">
-              </div>
-            </div>
-            <div class="column">
-              <div class="columnwrap">
-                <textarea id="output" placeholder="Output" readonly></textarea>
-              </div>
-              <div>
-                <article id="gradient" data-tooltip="You can't even decode the image."></article>
-                <div role="group" id="buttons">
-                  <button id="copy"><b>Copy Output</b></button>
-                  <button id="copyg" class="secondary"><b>Copy Gradient</b></button>
-                </div>
-              </div>
+          <div>
+            <input
+              type="number"
+              name="number"
+              placeholder="Shift"
+              aria-label="Number"
+              id="shift"
+            />
+          </div>
+        </div>
+        <div class="column">
+          <div class="columnwrap">
+            <textarea id="output" placeholder="Output" readonly></textarea>
+          </div>
+          <div>
+            <article
+              id="gradient"
+              data-tooltip="You can't even decode the image."
+            >
+            </article>
+            <div role="group" id="buttons">
+              <button id="copy"><b>Copy Output</b></button>
+              <button id="copyg" class="secondary"><b>Copy Gradient</b></button>
             </div>
           </div>
-        </article>
-      </main>
-      <article id="explanation" hidden> 
-        <header id="ex_header">Keyboard Cipher</header>
-        You know the classic Caesar cipher! The normal Caesar cipher shifts everything alphabetically.<br>
-        This Caesar cipher shifts everything according to your keyboard!<br><br>
-        This also includes special characters and capital letters. So M with a shift of +1 becomes &gt;.<br>
-        Unforunately, this is the "British-American Keyboard", sorry QUERTZ users.
-      </article>
+        </div>
+      </div>
+    </article>
+  </main>
+  <article id="explanation" hidden>
+    <header id="ex_header">Keyboard Cipher</header>
+    You know the classic Caesar cipher! The normal Caesar cipher shifts everything
+    alphabetically.<br />
+    This Caesar cipher shifts everything according to your keyboard!<br /><br />
+    This also includes special characters and capital letters. So M with a shift
+    of +1 becomes &gt;.<br />
+    Unforunately, this is the "British-American Keyboard", sorry QUERTZ users.
+  </article>
 </Layout>
 
 <script src="../scripts/ciphers.js"></script>
 
 <style>
-  html, body {
+  html,
+  body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(-15deg, var(--K), var(--L)40%, var(--K));
+    background-image: linear-gradient(-15deg, var(--K), var(--L) 40%, var(--K));
     background-attachment: fixed;
   }
   #background {
@@ -97,11 +115,11 @@ import Layout from "../layouts/Layout.astro";
     flex-wrap: wrap;
     min-width: 350px;
   }
-  @media (max-width: 775px){
+  @media (max-width: 775px) {
     #divider {
       display: inline;
     }
-    .column{
+    .column {
       min-height: 45%;
     }
   }

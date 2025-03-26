@@ -2,145 +2,152 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Fish Calculator" description="this is what Murray Giga completion does to someone">
-    <main class="container" id="background">
-        <article>
-            <div id="topgroup" role="group">
-                <select id="location">
-                    <option selected value="Cypress">
-                        Cypress Lake
-                    </option>
-                    <option value="Kenai" style="background-color: #efefef;">
-                        Kenai River
-                    </option>
-                    <option value="Biwa">
-                        Lake Biwa (same as Kenai)
-                    </option>
-                    <option value="Murray" style="background-color: #efefef;">
-                        Murray River
-                    </option>
-                    <option value="Everglades">
-                        Everglades
-                    </option>
-                    <option value="KeyWest" style="background-color: #efefef;">
-                        Key West
-                    </option>
-                    <option value="Toledo">
-                        Toledo Bend Reservoir
-                    </option>
-                    <option value="Great" style="background-color: #efefef;">
-                        Great Lakes
-                    </option>
-                    <option value="Danube">
-                        Danube River
-                    </option>
-                    <option value="Amazon" style="background-color: #efefef;">
-                        Amazon River
-                    </option>
-                    <option value="Mediterranean">
-                        Mediterranean Sea
-                    </option>
-                    <option value="CapeCod" style="background-color: #efefef;">
-                        Cape Cod
-                    </option>
-                    <option value="Hawaii">
-                        Hawaii
-                    </option>
-                    <option value="Cairns" style="background-color: #efefef;">
-                        Cairns
-                    </option>
-                </select>
-                <input type="number" name="luck" placeholder="Luck" aria-label="luck" id="luck">
-                <input type="number" name="scale" placeholder="Scale" aria-label="scale" id="scale">
-                <input type="number" name="variant" placeholder="Variant%" aria-label="variant" id="variant">
-            </div>
-            <div id="species" class="flex-container">
-            </div>
-        </article>
-        <div class="flex-container">
-            <div class="square C">
-                <p>
-                    <br>
-                    <normal>Standard</normal>
-                    <albino>Albino</albino>
-                    <melan>Melanistic</melan>
-                    <trophy>Trophy</trophy>
-                    <giga>Gigantic</giga>
-                </p>
-            </div>
-        </div>
-        <article>
-            <header>A Haiku</header>
-                At Murray River<br>
-                Still waiting for Gigantic<br>
-                Estuary Perch</span>
-        </article>
-    </main>
+<Layout
+  title="Fish Calculator"
+  description="this is what Murray Giga completion does to someone"
+>
+  <main class="container" id="background">
+    <article>
+      <div id="topgroup" role="group">
+        <select id="location">
+          <option selected value="Cypress"> Cypress Lake </option>
+          <option value="Kenai" style="background-color: #efefef;">
+            Kenai River
+          </option>
+          <option value="Biwa"> Lake Biwa (same as Kenai) </option>
+          <option value="Murray" style="background-color: #efefef;">
+            Murray River
+          </option>
+          <option value="Everglades"> Everglades </option>
+          <option value="KeyWest" style="background-color: #efefef;">
+            Key West
+          </option>
+          <option value="Toledo"> Toledo Bend Reservoir </option>
+          <option value="Great" style="background-color: #efefef;">
+            Great Lakes
+          </option>
+          <option value="Danube"> Danube River </option>
+          <option value="Amazon" style="background-color: #efefef;">
+            Amazon River
+          </option>
+          <option value="Mediterranean"> Mediterranean Sea </option>
+          <option value="CapeCod" style="background-color: #efefef;">
+            Cape Cod
+          </option>
+          <option value="Hawaii"> Hawaii </option>
+          <option value="Cairns" style="background-color: #efefef;">
+            Cairns
+          </option>
+        </select>
+        <input
+          type="number"
+          name="luck"
+          placeholder="Luck"
+          aria-label="luck"
+          id="luck"
+        />
+        <input
+          type="number"
+          name="scale"
+          placeholder="Scale"
+          aria-label="scale"
+          id="scale"
+        />
+        <input
+          type="number"
+          name="variant"
+          placeholder="Variant%"
+          aria-label="variant"
+          id="variant"
+        />
+      </div>
+      <div id="species" class="flex-container"></div>
+    </article>
+    <div class="flex-container">
+      <div class="square C">
+        <p>
+          <br />
+          <normal>Standard</normal>
+          <albino>Albino</albino>
+          <melan>Melanistic</melan>
+          <trophy>Trophy</trophy>
+          <giga>Gigantic</giga>
+        </p>
+      </div>
+    </div>
+    <article>
+      <header>A Haiku</header>
+      At Murray River<br />
+      Still waiting for Gigantic<br />
+      Estuary Perch
+    </article>
+  </main>
 </Layout>
 
 <script src="../scripts/fishcalc.js"></script>
 
 <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-image: linear-gradient(var(--K), var(--L)40%, var(--K));
-      background-attachment: fixed;
-    }
-    #background {
-      display: flex;
-      justify-content: center;
-      min-height: calc(100vh - 5.2rem);
-      flex-wrap: wrap;
-    }
-    .flex-container {
-        display: inline-flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    :global(.square) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        aspect-ratio: 1;
-        min-height: 12px;
-        max-height: 150px;
-        padding: 15px;
-        box-sizing: border-box;
-        background-color: #555;
-        flex-basis: calc(14.285714% - 5px);
-    }
-    :global(.C) {
-        border: 10px solid #777;
-    }
-    :global(.R) {
-        border: 10px solid cornflowerblue;
-    }
-    :global(.E) {
-        border: 10px solid limegreen;
-    }
-    :global(.L) {
-        border: 10px solid orange;
-    }
-    :global(.M) {
-        border: 10px solid red;
-    }
-    
-    :global(p normal) {
-        color: white
-    }
-    :global(p albino) {
-        color: antiquewhite;  
-    }
-    :global(p melan) {
-        color: black;  
-    }
-    :global(p trophy) {
-        color: goldenrod;  
-    }
-    :global(p giga) {
-        color: crimson;  
-    }
-  </style>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(var(--K), var(--L) 40%, var(--K));
+    background-attachment: fixed;
+  }
+  #background {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 5.2rem);
+    flex-wrap: wrap;
+  }
+  .flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  :global(.square) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 1;
+    min-height: 12px;
+    max-height: 150px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #555;
+    flex-basis: calc(14.285714% - 5px);
+  }
+  :global(.C) {
+    border: 10px solid #777;
+  }
+  :global(.R) {
+    border: 10px solid cornflowerblue;
+  }
+  :global(.E) {
+    border: 10px solid limegreen;
+  }
+  :global(.L) {
+    border: 10px solid orange;
+  }
+  :global(.M) {
+    border: 10px solid red;
+  }
+
+  :global(p normal) {
+    color: white;
+  }
+  :global(p albino) {
+    color: antiquewhite;
+  }
+  :global(p melan) {
+    color: black;
+  }
+  :global(p trophy) {
+    color: goldenrod;
+  }
+  :global(p giga) {
+    color: crimson;
+  }
+</style>

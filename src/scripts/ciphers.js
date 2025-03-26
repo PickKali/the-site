@@ -175,123 +175,123 @@ function A_decode(input) {
 }
 //es, tis is a eault tet o.🦝-^#$)!)🗑️8201404A
 
-function Z_encode(input){
+function Z_encode(input) {
   let encode = "";
   let hexbins = [];
   let hex = btoa(input);
-  hex = hex.replaceAll('=','');
+  hex = hex.replaceAll("=", "");
   let i = 0;
-  for (let j = 0; j < 6; j++){
-    hexbins[j] = '';
+  for (let j = 0; j < 6; j++) {
+    hexbins[j] = "";
   }
-  while (i < hex.length){
-    hexbins[i%6] += hex[i];
+  while (i < hex.length) {
+    hexbins[i % 6] += hex[i];
     i++;
   }
-  for (let j = 0; j < 6; j++){
-    hexbins[j] += '=';
+  for (let j = 0; j < 6; j++) {
+    hexbins[j] += "=";
     encode += hexbins[j];
   }
-  return encode
+  return encode;
 }
-function Z_decode(input){
-  let decode = '';
-  let hexbins = input.split('=');
-  if (hexbins.length == 7){
+function Z_decode(input) {
+  let decode = "";
+  let hexbins = input.split("=");
+  if (hexbins.length == 7) {
     let i = 0;
-    while (i < input.length){
-      if (hexbins[i%6][Math.floor(i/6)] != null){
-        decode += hexbins[i%6][Math.floor(i/6)];
+    while (i < input.length) {
+      if (hexbins[i % 6][Math.floor(i / 6)] != null) {
+        decode += hexbins[i % 6][Math.floor(i / 6)];
       }
       i++;
     }
   } else {
-    return "The person that sent you this encrypted text messed up. Laugh at them."
+    return "The person that sent you this encrypted text messed up. Laugh at them.";
   }
   return atob(decode);
 }
 //WBIEYBI4=W0GgX0G=ValZVZJ=zGzGsXv=LlIVdhe=CzGmC0C=
 
 const O2d = [
-  ['a','b','c','d','e','f'],
-  ['g','h','i','j','k','l'],
-  ['m','n','o','p','q','r'],
-  ['s','t','u','v','w','x'],
-  ['y','z','A','B','C','D'],
-  ['E','F','G','H','I','J'],
-  ['K','L','M','N','O','P'],
-  ['Q','R','S','T','U','V'],
-  ['W','X','Y','Z','ඞ']
-] 
-const ocaps = "ABCDEF"
-function O_encode(input, maxlen){
-  let encode = 'linear-gradient(to right, ';
+  ["a", "b", "c", "d", "e", "f"],
+  ["g", "h", "i", "j", "k", "l"],
+  ["m", "n", "o", "p", "q", "r"],
+  ["s", "t", "u", "v", "w", "x"],
+  ["y", "z", "A", "B", "C", "D"],
+  ["E", "F", "G", "H", "I", "J"],
+  ["K", "L", "M", "N", "O", "P"],
+  ["Q", "R", "S", "T", "U", "V"],
+  ["W", "X", "Y", "Z", "ඞ"],
+];
+const ocaps = "ABCDEF";
+function O_encode(input, maxlen) {
+  let encode = "linear-gradient(to right, ";
   let i = 0;
-  let hex = '';
+  let hex = "";
   let first = true;
-  input = input.replace(/[^a-zA-Z ]/g,'');
-  input = input.replaceAll(' ','ඞ');
-  while (i < input.length){
+  input = input.replace(/[^a-zA-Z ]/g, "");
+  input = input.replaceAll(" ", "ඞ");
+  while (i < input.length) {
     let j = 0;
     let k = 0;
     let found = false;
-    while (!found){
-      if (input[i] == O2d[k][j]){
-        hex += ocaps[j]+ k.toString();
+    while (!found) {
+      if (input[i] == O2d[k][j]) {
+        hex += ocaps[j] + k.toString();
         found = true;
         break;
       }
       j++;
-      if (j==6){
+      if (j == 6) {
         j = 0;
         k++;
       }
-      if (k == 8 && j == 5){
+      if (k == 8 && j == 5) {
         found = true;
         break;
       }
     }
-    if (hex.length == maxlen){
-      if (first){
-        first = false
+    if (hex.length == maxlen) {
+      if (first) {
+        first = false;
         hex = "#" + hex;
-      }else{
+      } else {
         hex = ", #" + hex;
       }
       encode += hex;
-      hex = '';
+      hex = "";
     }
     i++;
   }
-  if (hex.length != 0){
-    hex = hex.padEnd(maxlen,'F');
-    if (first){
-      first = false
+  if (hex.length != 0) {
+    hex = hex.padEnd(maxlen, "F");
+    if (first) {
+      first = false;
       hex = "#" + hex;
-    }else{
+    } else {
       hex = ", #" + hex;
     }
-    encode += hex
+    encode += hex;
   }
   return encode + ")";
 }
-function O_decode(input){
-  input = input.replaceAll("linear-gradient(to right, ","");
-  input = input.replaceAll("#","");
-  input = input.replaceAll(", ","");
-  input = input.replaceAll(")","");
-  input = input.replaceAll("FF","");
-  let output = '';
-  let i = 0
-  let reverse = { A: 0, B: 1, C: 2, D: 3, E: 4 , F: 5};
-  while (i<input.length){
-    if (reverse[input[i]]==null || parseInt(input[i+1]) == NaN){
-      return "The person that sent you this encrypted text messed up. Laugh at them."
+function O_decode(input) {
+  input = input.replaceAll("linear-gradient(to right, ", "");
+  input = input.replaceAll("#", "");
+  input = input.replaceAll(", ", "");
+  input = input.replaceAll(")", "");
+  input = input.replaceAll("FF", "");
+  let output = "";
+  let i = 0;
+  let reverse = { A: 0, B: 1, C: 2, D: 3, E: 4, F: 5 };
+  while (i < input.length) {
+    if (reverse[input[i]] == null || parseInt(input[i + 1]) == NaN) {
+      return "The person that sent you this encrypted text messed up. Laugh at them.";
     }
-    output += O2d[parseInt(input[i+1])][reverse[input[i]]];
+    output += O2d[parseInt(input[i + 1])][reverse[input[i]]];
     i += 2;
   }
-  output = output.replaceAll('ඞ',' ');
+  output = output.replaceAll("ඞ", " ");
   return output;
 }
 
@@ -323,7 +323,10 @@ function update() {
       outputText = encoding ? O_encode(finalInput, 8) : O_decode(finalInput);
       break;
   }
-  if ((currentCipher == "Gradient" || currentCipher == "GradientA") && encoding){
+  if (
+    (currentCipher == "Gradient" || currentCipher == "GradientA") &&
+    encoding
+  ) {
     $("#gradient").show();
     $("#gradient").css("background", outputText);
     $("#copyg").show();
