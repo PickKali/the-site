@@ -1,0 +1,174 @@
+---
+export const post = {
+  title: "Embrace the Tiny Projects",
+  addedDate: "2025-08-25T12:00:00Z",
+  relevantDate: "2021-04-06T12:00:00Z",
+  tags: ["Self Reflection", "Potentially Useful"],
+};
+import Layout from "../../layouts/Layout.astro";
+
+//import { Image } from "astro:assets";
+import mild from "../../assets/posts/2025/mildlycompresseddominoes.gif?url";
+import really from "../../assets/posts/2025/reallycompresseddominoes.gif?url";
+console.log(mild);
+---
+
+<Layout
+  title="Embrace the Tiny Projects"
+  description="Appreciate your useless yet memorable creations."
+>
+  <section class="container" style="max-width: 800px">
+    <article>
+      <h1>Embrace the Tiny Projects</h1>
+      <i>Appreciate your useless yet memorable creations.</i>
+    </article>
+    <article>
+      <header>A Memetic Origin</header>
+      <b>April 6th, 2021.</b> I had finished the classwork for AP Computer Science
+      Principles for the day. Still feeling creative, I opened up Roblox Studio and
+      started to build something. Just a line of parts in a row and another part
+      off to the side. <br /><br />
+      <img
+        src={mild}
+        alt="Roblox dominoes falling over in a non-repeating gif."
+        height={400}
+        width={800}
+      /><br /><br />
+      This was entirely based on the <a
+        href="https://knowyourmeme.com/memes/cry-about-it"
+        target="_blank">Cry About It</a
+      >
+      meme at the time where people made gifs of seemingly cursed situations with
+      the apt caption of "Cry About It".<br />
+      I had posted it to Reddit on my old account and it had gained a lot of traction.
+      At the time of writing this I had deleted my account so I can't even prove
+      that part. :) <br />
+      This was the first time that I witnessed a creation evolve over time. The meaning
+      hadn't changed, but it definitely had evolved over time. <br /><br />
+      <ul>
+        <li>
+          <a
+            href="https://tenor.com/view/cry-about-it-gif-21078973"
+            target="_blank">Reposted onto Tenor after 2 days</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://tenor.com/view/aga-dominos-fall-cry-about-it-gif-21271175 "
+            target="_blank"
+            >Reposted onto Tenor after a few weeks at a way lower quality</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://knowyourmeme.com/photos/2130370-cry-about-it"
+            target="_blank">First repost archived on KYM months later</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://tenor.com/view/roblox-roblox-physics-roblox-meme-roblox-memes-cry-about-it-gif-27348262"
+            target="_blank"
+            >Latest repost I could find has a tiktok watermark that is too
+            condensed to even read the handle</a
+          >
+        </li>
+      </ul>
+      People are having fun, I don't want to ruin the fun by trying to take these
+      down.
+      <br /><br />
+      <img
+        src={really}
+        alt="Roblox dominoes falling over in a repeating gif with the cry about it caption."
+        height={400}
+        width={800}
+      />
+      <br /><br />
+      <b
+        >Obviously, this was preprogrammed. The physics engine isn't that bad.</b
+      >
+      <br />
+      <br />
+      <pre><code>
+<span class="keyword">local</span> group = <span class="keyword">script</span>.Parent.Parent
+<span class="keyword">script</span>.Parent.ClickDetector.MouseClick:Connect(<span class="keyword">function</span>()
+    group.A.Transparency = 0.5
+    <span class="keyword">wait</span>(10)
+    group.A.Transparency = 0
+    <span class="keyword">wait</span>(1)
+    group.A.Anchored = <span class="keyword">false</span>
+    <span class="keyword">wait</span>(2)
+    group.B.Orientation = <span class="keyword">Vector3</span>.new(0, 0, 15)
+    <span class="keyword">wait</span>(1)
+    <span class="keyword">for</span> _, weld <span class="keyword">in</span> pairs(group.D:GetChildren()) <span class="keyword">do</span>
+        weld.Enabled = <span class="keyword">true</span>
+    <span class="keyword">end</span>
+    group.A.CanCollide = <span class="keyword">false</span>
+    group.E.CanCollide = <span class="keyword">false</span>
+    group.F.CanCollide = <span class="keyword">false</span>
+    group.G.CanCollide = <span class="keyword">false</span>
+    group.D.Anchored = <span class="keyword">false</span>
+    <span class="keyword">wait</span>(1)
+    group.C.AssemblyLinearVelocity = <span class="keyword">Vector3</span>.new(0,100,0)
+    group.H.CanCollide = <span class="keyword">true</span>
+    group.H.AssemblyAngularVelocity = <span class="keyword">Vector3</span>.new(-25,3,0)
+    group.H.Anchored = <span class="keyword">false</span>
+<span class="keyword">end</span>)    
+        </code></pre>
+      <i>Ah yes, very lovely 2021 luau.</i> The smell of not having task.wait is
+      here. <br /><br />
+      You might have noticed that it's based on a click detector and has a 10 second
+      wait. There's an indicator using transparency. I used that to give myself the
+      timing on when to start the gyazo recording to capture it.
+    </article>
+    <article>
+      <header>Philosophy</header>
+      This is the first post that I wanted to write. It's essentially my philosophy
+      whenever I make something.
+      <blockquote>
+        Find something that you can do, then use that in an unorthodox way.
+      </blockquote>
+      I knew that I can use a gyazo recording to make my own iteration of the domino
+      variant of the cry about it genre. To fit inside that constraint, I used the
+      transparency to time when there's one second to fall, so I could maximize the
+      recording. The camera is often constrained to the player's position, so I switched
+      into server sided view and have it triggered with a delay so I could position
+      myself. <br /><br />
+      The orthdox way of the meme is to only have one wrong thing, so why not have
+      multiple wrong things happen in the meme. It starts off normal but with the
+      center anchored. The one at the left edge falls over, passing through a cancollide
+      false object that is also anchored.<br /><br />
+      The same that is happening, a loop enables the welds for all of the dominoes
+      that have already fallen over. Didn't even realize it then, but since it doesn't
+      have the massless property, it falls towards the start. <br /><br />
+      The two remaining ones fly towards the camera and fly upwards respectively.
+      A feature that I'm still surprised that a lot of peers did not know is that
+      a gif can be set to not loop. Naturally, I did that for the meta layer of breaking
+      expectations.
+      <br /><br />
+      <b>I'm unconventionally unconventional.</b> I like that.
+    </article>
+  </section>
+</Layout>
+
+<style>
+  html {
+    background-image: linear-gradient(to right, var(--K), var(--L));
+    background-size: auto;
+    background-repeat: repeat;
+  }
+
+  pre {
+    background: #1e1e1e;
+    border-radius: 8px;
+  }
+
+  code {
+    font-family: "Consolas", monospace;
+    color: #dcdcdc;
+  }
+
+  .keyword {
+    color: #ff6658;
+  }
+</style>
