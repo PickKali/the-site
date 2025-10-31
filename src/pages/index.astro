@@ -24,7 +24,7 @@ interface PostModule {
 }
 // so this whole system thing was meant to support mdx but I found myself going to be using .astro for practically all posts.
 const normalizedPosts = Object.values(modules).map((p) => ({
-  url: "/the-site" + p.url,
+  url: p.url,
   title:
     p.frontmatter?.title ?? p.post?.title ?? "[Kali Forgot To Add A Title]",
   addedDate: new Date(
@@ -57,7 +57,7 @@ const normalizedPosts = Object.values(modules).map((p) => ({
   </section>
   <section id="serioussection" class="container-float">
     <article>
-      <header><h2>Posts</h2></header>
+      <header><h2>Projects</h2></header>
       <section id="posts">
         <div class="toolbox">
           <div>
