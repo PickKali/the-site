@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import fumo from "../assets/index/fumo.png";
 
 const modules = import.meta.glob<PostModule>("./posts/*.astro", {
   eager: true,
@@ -39,20 +38,15 @@ const normalizedPosts = Object.values(modules).map((p) => ({
 
 <Layout title="PickKali's silly corner" description="Tap here for +1 Silly">
   <section id="sillysection">
-    <div id="rotateddiv">
-      <Image
-        src={fumo}
-        alt="Kali, in a fumo plushie form."
-        height={400}
-        width={400}
-      />
-    </div>
-    <article id="innerarticle">
+    <article id="outerarticle" class="halftone slantR">
+      <article id="innerarticle">
       <h1>Hi! I'm Kali! And I'm silly!</h1>
       <blockquote id="randomquote"></blockquote>
       <i>This is actually a quote that I have said.</i>
       <br /><br />
-      <a role="button" class="lesspadding" href="#posts">Posts▼</a>
+      <a role="button" class="lesspadding slantR hovers" href="#posts">Posts▼</a
+      >
+    </article>
     </article>
   </section>
   <section id="serioussection" class="container-float">
@@ -118,104 +112,25 @@ const normalizedPosts = Object.values(modules).map((p) => ({
     <script src="../scripts/index.js"></script>
 
     <style>
-      html {
-        background-image:
-          linear-gradient(
-            to right,
-            var(--K),
-            #00000000 20%,
-            #00000000 80%,
-            var(--L)
-          ),
-          url("/k&.png"), linear-gradient(to right, var(--K), var(--L));
-        background-size: auto, 80px, auto;
-        background-repeat: repeat, repeat, repeat;
-        animation: panning 10s ease-in-out infinite;
-        animation-direction: alternate;
+      #outerarticle {
+        height: min-content;
+        padding: 2% 7% 2% 7%;
+        margin-top: auto;
+        margin-bottom: auto;
       }
-
-      @keyframes panning {
-        0% {
-          background-position:
-            0% 0%,
-            0% 0%,
-            0% 0%;
-        }
-        100% {
-          background-position:
-            0% 0%,
-            5% 5%,
-            0% 0%;
-        }
-      }
-
       #innerarticle {
         height: min-content;
         margin-top: auto;
         margin-bottom: auto;
+        align-self: center;
+        align-content: center;
+        text-align: center;
       }
       #sillysection {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         min-height: calc(100vh - 4.5rem);
-      }
-      #rotateddiv {
-        height: min-content;
-        width: fit-content;
-        margin-top: auto;
-        margin-bottom: auto;
-        animation: rotateYZ 15s infinite linear;
-      }
-      #serioussection {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1080px;
-      }
-      .lesspadding {
-        padding: 0.5em 1em;
-      }
-      td {
-        line-height: 2em;
-      }
-      @keyframes rotateYZ {
-        to {
-          transform: rotateY(360deg) rotateZ(720deg);
-        }
-      }
-      ul li {
-        list-style-type: none;
-        display: list-item;
-        text-align: center;
-      }
-      .toolbox {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-      .thumbnail {
-        text-decoration: none;
-        border: solid 1px;
-        margin: 1px;
-        border-image: linear-gradient(to right, var(--K), var(--L)) 27;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 20px;
-        transition: transform 0.3s;
-      }
-      .thumbnail:hover {
-        transform: translateY(-2px);
-      }
-      .content {
-        width: 300px;
-      }
-      @media (max-width: 650px) {
-        .thumbnail {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
       }
     </style>
   </section></Layout

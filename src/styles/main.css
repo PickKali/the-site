@@ -1,11 +1,11 @@
 :root {
-  --K: #f5a9b8;
-  --L: #e7c386;
-  --KL: #fa8072;
-  --KBlack: #171717;
-  --KGray: #505050;
-  --KLGray: #adadad;
-  --KWhite: #fdfdfd;
+  --Primary: #fa8072;
+  --AccentA: #fa8072;
+  --AccentB: #c871ff;
+  --Dark: #14003d;
+  --DGray: #505050;
+  --LGray: #adadad;
+  --White: #fdfdfd;
 }
 
 html,
@@ -16,9 +16,64 @@ body {
   font-style: normal;
   line-height: 20px;
   scroll-behavior: smooth;
+
+  background-image:
+    linear-gradient(
+      to right,
+      var(--AccentA),
+      #00000000 20%,
+      #00000000 80%,
+      var(--AccentB)
+    ),
+    url("/k&.png"), linear-gradient(to right, var(--AccentA), var(--AccentB));
+  background-size: auto, 40px, auto;
+  background-repeat: repeat, repeat, repeat;
+  animation: panning 24s linear infinite;
+  animation-direction: normal;
+}
+
+@keyframes panning {
+  0% {
+    background-position:
+      0% 0%,
+      0% 0%,
+      0% 0%;
+  }
+  100% {
+    background-position:
+      0% 0%,
+      40px 40px,
+      0% 0%;
+  }
 }
 
 @font-face {
   font-family: Kalico;
   src: url("/KalicoPolygon.otf");
+}
+
+.slantL {
+  clip-path: polygon(0% 10%, 0% 100%, 100% 90%, 100% 0%);
+}
+
+.slantR {
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+.hovers {
+  transition:
+    0.2s transform,
+    0.2s filter;
+}
+
+.hovers:hover {
+  transform: translate(-3px, -3px);
+}
+
+.halftone {
+  background-color: var(--Dark);
+  background-image: url("/halftone.svg");
+  background-repeat: repeat;
+  background-size: contain;
+  background-blend-mode: overlay;
 }
