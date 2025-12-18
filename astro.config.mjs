@@ -9,6 +9,6 @@ export default defineConfig({
     assetsInclude: ["**/*.gif"],
   },
   image: {
-    responsiveStyles: true
-  }
+    responsiveStyles: true,
+  },
 });

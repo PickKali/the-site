@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import kalitrying from '../assets/index/kali-trying.png';
+import kalitrying from "../assets/index/kali-trying.png";
 
 const modules = import.meta.glob<PostModule>("./posts/*.astro", {
   eager: true,
@@ -40,17 +40,23 @@ const normalizedPosts = Object.values(modules).map((p) => ({
 <Layout title="PickKali's silly corner" description="Tap here for +1 Silly">
   <section id="sillysection">
     <div>
-    <Image src={kalitrying} alt="Drawing of Kali sitting down with headphones, looking at her laptop." height={400} width={400}></Image>
+      <Image
+        src={kalitrying}
+        alt="Drawing of Kali sitting down with headphones, looking at her laptop."
+        height={400}
+        width={400}
+      />
     </div>
     <article id="outerarticle" class="halftone slantR">
       <article id="innerarticle">
-      <h1>Hi! I'm Kali! And I'm silly!</h1>
-      <blockquote id="randomquote"></blockquote>
-      <i>This is actually a quote that I have said.</i>
-      <br /><br />
-      <a role="button" class="lesspadding slantR hovers" href="#posts">Posts▼</a
-      >
-    </article>
+        <h1>Hi! I'm Kali! And I'm silly!</h1>
+        <blockquote id="randomquote"></blockquote>
+        <i>This is actually a quote that I have said.</i>
+        <br /><br />
+        <a role="button" class="lesspadding slantR hovers" href="#posts"
+          >Posts▼</a
+        >
+      </article>
     </article>
   </section>
   <section id="serioussection" class="section">

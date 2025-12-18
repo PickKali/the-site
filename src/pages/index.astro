@@ -2,19 +2,29 @@
 import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import kalitrying from '../assets/index/kali-trying.png';
+import kalitrying from "../assets/index/kali-trying.png";
 ---
 
 <Layout title="PickKali's silly corner" description="Tap here for +1 Silly">
   <section id="Main" class="section">
     <div class="centered">
-    <Image id="tryingimage" src={kalitrying} alt="Drawing of Kali sitting down with headphones, looking at her laptop." height={450} width={450} title="Oh, there's a cursor on me. Hi cursor! ^w^" layout="constrained"></Image>
+      <Image
+        id="tryingimage"
+        src={kalitrying}
+        alt="Drawing of Kali sitting down with headphones, looking at her laptop."
+        height={450}
+        width={450}
+        title="Oh, there's a cursor on me. Hi cursor! ^w^"
+        layout="constrained"
+      />
     </div>
     <div class="halftone slantR card">
       <div class="centered">
-        <h1>Kali, <select>
-          <option>No Title Selected</option>  
-        </select></h1>
+        <h1>
+          Kali, <select>
+            <option>No Title Selected</option>
+          </select>
+        </h1>
         <i id="flavortext">No title? Guess I'm just Kali then!</i>
         <br /><br />
         <div id="options" class="allcentered">
@@ -57,5 +67,4 @@ import kalitrying from '../assets/index/kali-trying.png';
       flex-wrap: wrap;
     }
   </style>
-  </Layout
->
+</Layout>
