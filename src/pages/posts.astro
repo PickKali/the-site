@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+import kalitrying from '../assets/index/kali-trying.png';
+
+const modules = import.meta.glob<PostModule>("./posts/*.astro", {
+  eager: true,
+});
+interface PostModule {
+  url: string;
+  frontmatter?: {
+    title?: string;
+    addedDate?: string;
+    relevantDate?: string;
+    tags?: string[];
+  };
+  post?: {
+    title?: string;
+    addedDate?: string;
+    relevantDate?: string;
+    tags?: string[];
+  };
+}
+// so this whole system thing was meant to support mdx but I found myself going to be using .astro for practically all posts.
+const normalizedPosts = Object.values(modules).map((p) => ({
+  url: p.url,
+  title:
+    p.frontmatter?.title ?? p.post?.title ?? "[Kali Forgot To Add A Title]",
+  addedDate: new Date(
+    p.frontmatter?.addedDate ?? p.post?.addedDate ?? Date.now(),
+  ),
+  relevantDate: new Date(
+    p.frontmatter?.relevantDate ?? p.post?.relevantDate ?? Date.now(),
+  ),
+  tags: p.frontmatter?.tags ?? p.post?.tags ?? [],
+}));
+---
+
+<Layout title="PickKali's silly corner" description="Tap here for +1 Silly">
+  <section id="sillysection">
+    <div>
+    <Image src={kalitrying} alt="Drawing of Kali sitting down with headphones, looking at her laptop." height={400} width={400}></Image>
+    </div>
+    <article id="outerarticle" class="halftone slantR">
+      <article id="innerarticle">
+      <h1>Hi! I'm Kali! And I'm silly!</h1>
+      <blockquote id="randomquote"></blockquote>
+      <i>This is actually a quote that I have said.</i>
+      <br /><br />
+      <a role="button" class="lesspadding slantR hovers" href="#posts">Posts▼</a
+      >
+    </article>
+    </article>
+  </section>
+  <section id="serioussection" class="section">
+    <article>
+      <header><h2>Projects</h2></header>
+      <section id="posts">
+        <div class="toolbox">
+          <div>
+            <label for="sortselect">Sort by:</label>
+            <details class="dropdown" id="sortselect">
+              <summary id="sortsummary">Select Sort</summary>
+              <ul style="bottom: 100%">
+                <li><a href="#posts">Added Date (Descending)</a></li>
+                <li><a href="#posts">Added Date (Ascending)</a></li>
+                <li><a href="#posts">Based On Date (Descending)</a></li>
+                <li><a href="#posts">Based On Date (Ascending)</a></li>
+              </ul>
+            </details>
+          </div>
+
+          <div>
+            <label for="tagfilters">Filter by tags:</label>
+            <details class="dropdown" id="tagfilters">
+              <summary id="tagsummary">Select Tags (Inclusive)</summary>
+              <ul style="bottom: 100%">
+                {
+                  Array.from(new Set(normalizedPosts.flatMap((p) => p.tags)))
+                    .sort((a, b) => a.localeCompare(b))
+                    .map((tag) => (
+                      <li class="dropitem">
+                        <label>
+                          <input
+                            type="checkbox"
+                            value={tag}
+                            class="tag-checkbox"
+                          />
+                          {tag}
+                        </label>
+                      </li>
+                    ))
+                }
+              </ul>
+            </details>
+          </div>
+        </div>
+        <ul id="postlist" class="toolbox"></ul>
+      </section>
+      <footer>
+        <small
+          >Based On? Based On What? <br />
+          <i
+            >The "Based On" date is when it was related to me. A lot of these
+            posts are retrospective, so this date is listed.</i
+          ><small></small>
+        </small>
+      </footer>
+    </article>
+
+    <script is:inline define:vars={{ normalizedPosts }}>
+      window.__POSTS__ = normalizedPosts;
+    </script>
+
+    <script src="../scripts/index.js"></script>
+
+    <style>
+      #outerarticle {
+        height: min-content;
+        padding: 2% 7% 2% 7%;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      #innerarticle {
+        height: min-content;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-self: center;
+        align-content: center;
+        text-align: center;
+      }
+    </style>
+  </section></Layout
+>

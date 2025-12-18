@@ -2,38 +2,31 @@
 
 ---
 
-<header id="headermod">
-  <nav class="flexme">
-    <ul><li><a href="/the-site/" id="headerlabel">PickKali!</a></li></ul>
-    <ul class="flexme">
-      <li><a href="/the-site/" class="secondary">Home</a></li>
-      <li hidden>
-        <a href="/the-site/projects" class="secondary">Projects</a>
-      </li>
-      <li hidden>
-        <a href="/the-site/glossary" class="secondary">Glossary</a>
-      </li>
-      <li hidden><a href="/the-site/about" class="secondary">About</a></li>
-    </ul>
-  </nav>
-</header>
+<nav class="flexme halftone">
+  <ul><li><a href="/the-site/" id="headerlabel">PickKali!</a></li></ul>
+  <ul class="flexme">
+    <li><a href="/the-site/" class="secondary">Home</a></li>
+    <li hidden>
+      <a href="/the-site/projects" class="secondary">Projects</a>
+    </li>
+    <li hidden>
+      <a href="/the-site/glossary" class="secondary">Glossary</a>
+    </li>
+  </ul>
+</nav>
 
 <style>
-  #headermod {
-    margin: 0 !important;
-    border-radius: 0 !important;
+  nav {
+    position: sticky;
+    background-color: var(--Dark);
     padding: 0em 1em;
-    background-color: var(--pico-background-color);
-    box-shadow: 0px -4px 80px var(--pico-background-color) !important;
-  }
-  .flexme {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    top: 0;
+    z-index: 100;
+    border-bottom: 4px solid var(--White);
   }
   #headerlabel {
     font-family: "Kalico" !important;
     font-size: xx-large !important;
-    color: var(--KL) !important;
+    color: var(--Primary) !important;
   }
 </style>
