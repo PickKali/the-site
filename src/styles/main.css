@@ -3,9 +3,12 @@
   --AccentA: #fa8072;
   --AccentB: #c871ff;
   --Dark: #14003d;
-  --DGray: #505050;
-  --LGray: #adadad;
+  --DGray: #242424;
+  --LGray: #3c3c3c;
   --White: #fdfdfd;
+  --Lime: #37ff00;
+  --Yellow: #fff600;
+  --Purple: #c871ff;
 }
 
 html,
@@ -79,11 +82,19 @@ body {
   background-blend-mode: overlay;
 }
 
-.section {
+.section{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   min-height: calc(100vh - 4.5rem);
+}
+
+.section ~ .section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: calc(100vh);
+  padding-top: 1.75rem;
 }
 
 .centered {
@@ -95,9 +106,13 @@ body {
   text-align: center;
 }
 
+.allcentered {
+  margin: auto;
+}
+
 .card {
   height: min-content;
-  padding: 2% 7% 2% 7%;
+  padding: 15px 50px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -112,3 +127,35 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
   }
+
+a {
+  color: var(--White);
+}
+
+.button {
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s transform, 0.2s filter;
+  text-shadow: 0px 0px 5px var(--Dark);
+  margin-bottom: 3px;
+}
+
+.button:hover {
+  transform: translate(0px, -3px);
+}
+
+.salmon {
+  background-color: var(--Primary);
+}
+
+.lime {
+  background-color: var(--Lime);
+}
+
+.yellow {
+  background-color: var(--Yellow);
+}
+
+.purple {
+  background-color: var(--Purple);
+}

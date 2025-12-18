@@ -8,4 +8,7 @@ export default defineConfig({
   vite: {
     assetsInclude: ["**/*.gif"],
   },
+  image: {
+    responsiveStyles: true
+  }
 });

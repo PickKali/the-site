@@ -8,18 +8,21 @@ import kalitrying from '../assets/index/kali-trying.png';
 <Layout title="PickKali's silly corner" description="Tap here for +1 Silly">
   <section id="Main" class="section">
     <div class="centered">
-    <Image id="tryingimage" src={kalitrying} alt="Drawing of Kali sitting down with headphones, looking at her laptop." height={450} width={450} title="Oh, there's a cursor on me. Hi cursor! ^w^"></Image>
+    <Image id="tryingimage" src={kalitrying} alt="Drawing of Kali sitting down with headphones, looking at her laptop." height={450} width={450} title="Oh, there's a cursor on me. Hi cursor! ^w^" layout="constrained"></Image>
     </div>
     <div class="halftone slantR card">
       <div class="centered">
         <h1>Kali, <select>
           <option>No Title Selected</option>  
         </select></h1>
-        <blockquote id="randomquote"></blockquote>
-        <i>This is actually a quote that I have said.</i>
+        <i id="flavortext">No title? Guess I'm just Kali then!</i>
         <br /><br />
-        <a role="button" class="hovers" href="#posts">Posts▼</a
-        >
+        <div id="options" class="allcentered">
+          <a href="#Projects" class="button salmon card slantL">Projects▼</a>
+          <a href="#Posts" class="button lime card slantL">Posts▼</a>
+          <a href="#Music" class="button yellow card slantL">Music▼</a>
+          <a href="#Glossary" class="button purple card slantL">Glossary▼</a>
+        </div>
       </div>
     </div>
   </section>
@@ -28,9 +31,30 @@ import kalitrying from '../assets/index/kali-trying.png';
       <h1>Projects</h1>
     </div>
   </section>
+  <section id="Posts" class="section">
+    <div class="halftone slantR card maximize centered">
+      <h1>Posts</h1>
+    </div>
+  </section>
+  <section id="Music" class="section">
+    <div class="halftone slantL card maximize centered">
+      <h1>Music</h1>
+    </div>
+  </section>
+  <section id="Glossary" class="section">
+    <div class="halftone slantR card maximize centered">
+      <h1>Glossary</h1>
+    </div>
+  </section>
   <style>
     #tryingimage {
       filter: drop-shadow(-16px 16px var(--Dark));
+    }
+    #options {
+      max-width: 35vw;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
   </style>
   </Layout
