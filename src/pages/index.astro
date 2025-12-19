@@ -16,6 +16,7 @@ import kalitrying from "../assets/index/kali-trying.png";
         width={450}
         title="Oh, there's a cursor on me. Hi cursor! ^w^"
         layout="constrained"
+        draggable=false
       />
     </div>
     <div class="halftone slantR card">
@@ -58,7 +59,11 @@ import kalitrying from "../assets/index/kali-trying.png";
   </section>
   <style>
     #tryingimage {
+      cursor: grab;
       filter: drop-shadow(-16px 16px var(--Dark));
+    }
+    #tryingimage:active {
+      cursor: grabbing;
     }
     #options {
       max-width: 35vw;

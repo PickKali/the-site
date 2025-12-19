@@ -3,16 +3,8 @@
 ---
 
 <nav class="flexme halftone">
-  <ul><li><a href="/the-site/" id="headerlabel">PickKali!</a></li></ul>
-  <ul class="flexme">
-    <li><a href="/the-site/" class="secondary">Home</a></li>
-    <li hidden>
-      <a href="/the-site/projects" class="secondary">Projects</a>
-    </li>
-    <li hidden>
-      <a href="/the-site/glossary" class="secondary">Glossary</a>
-    </li>
-  </ul>
+  <a href="/the-site/" id="headerlabel" class="centered">PickKali!</a>
+  <a href="/the-site/" class="salmon slantR navbutton">Home</a>
 </nav>
 
 <style>
@@ -23,6 +15,18 @@
     top: 0;
     z-index: 100;
     border-bottom: 4px solid var(--White);
+    min-height: 4.5rem;
+    max-height: 4.5rem;
+  }
+  .navbutton {
+    color: var(--Dark);
+    font-weight: bold;
+    cursor: pointer;
+    height: min-content;
+    padding: 10px 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-shadow: 0px 0px 5px var(--White);
   }
   #headerlabel {
     font-family: "Kalico" !important;
