@@ -179,7 +179,7 @@ select {
   font-weight: 600;
   height: 2.5rem;
   margin: auto;
-  color: var(--White)
+  color: var(--White);
 }
 
 select:hover,select:focus {
@@ -191,4 +191,8 @@ select:hover,select:focus {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.hoverwhite:hover, .hoverwhite:focus {
+  background-color: var(--White);
 }
